@@ -1,0 +1,42 @@
+using System.Text.RegularExpressions;
+
+namespace Trip.Application.Common.ResourceParameters;
+
+/// <summary>
+/// 旅游路线参数处理
+/// </summary>
+public class TouristRouteResourceParameters
+{
+    private string _rating = string.Empty;
+
+    public string Keyword { get; set; } = string.Empty;
+
+    public string RatingType { get; set; } = string.Empty;
+
+    public int? RatingValue { get; set; }
+
+    public string Rating
+    {
+        get => _rating;
+        set
+        {
+            if (!string.IsNullOrWhiteSpace(value))
+            {
+                var regex = new Regex(@"([A-Za-z0-9\-]+)(\d+)");
+                var match = regex.Match(value);
+
+                if (match.Success)
+                {
+                    RatingType = match.Groups[1].Value;
+                    RatingValue = int.Parse(match.Groups[2].Value);
+                }
+
+                _rating = value;
+            }
+        }
+    }
+
+    public string? OrderBy { get; set; }
+
+    public string? Fields { get; set; }
+}

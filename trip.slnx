@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Trip.Api/Trip.Api.csproj" />
+    <Project Path="src/Trip.Application/Trip.Application.csproj" />
+    <Project Path="src/Trip.Domain/Trip.Domain.csproj" />
+    <Project Path="src/Trip.Infrastructure/Trip.Infrastructure.csproj" />
+  </Folder>
+</Solution>
